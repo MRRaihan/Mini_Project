@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 Route::get('/', 'FrontendController@index')->name('home.index');
+Route::get('service/{id}/details','FrontendController@details')->name('service.details');
+
 
 
 

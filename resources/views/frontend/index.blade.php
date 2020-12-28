@@ -25,15 +25,15 @@
                                 <div class="product-item-container">
                                     <div class="left-block">
                                         <div class="product-image-container  second_img ">
-                                            <a href="product.html" class="product-img"><img src="{{asset($service->image)}}" alt="" width="50%"></a>
+                                            <a href="{{route('service.details',  $service->id)}}" class="product-img"><img src="{{asset($service->image)}}" alt="" width="50%"></a>
                                         </div>
                                     </div>
                                     <div class="right-block">
                                         <div class="caption">
-                                            <h1><a href="">{{$service->title}}</a></h1>
+                                            <h1><a href="{{route('service.details',  $service->id)}}">{{$service->title}}</a></h1>
                                             <div class="ratings">
                                                 <div class="description item-desc text-justify">
-                                                    <p>{{Str::limit($service->description, 150)}}</p>
+                                                    <a href="{{route('service.details',  $service->id)}}"><p>{{Str::limit($service->description, 150)}}</p></a>
                                                 </div>
                                             </div>
 
@@ -45,7 +45,7 @@
                                         </div>
 
                                         <div class="button-group">
-                                            <a class="btn btn-default" href="">Details</a>
+                                            <a class="btn btn-default" href="{{route('service.details',  $service->id)}}">Details</a>
                                         </div>
                                     </div><!-- right block -->
                                 </div>

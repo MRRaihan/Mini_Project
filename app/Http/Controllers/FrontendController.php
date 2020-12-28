@@ -13,4 +13,10 @@ class FrontendController extends Controller
         return view('frontend.index', $data);
 
     }
+
+    public function details($id){
+        $data['services'] = Service::where('status', 'active')->get();
+        $data['service']= Service::findOrFail($id);
+        return view('frontend.details', $data);
+    }
 }
