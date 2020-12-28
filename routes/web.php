@@ -22,9 +22,18 @@ Route::get('service/{id}/details','FrontendController@details')->name('service.d
 
 
 
-Route::group(['prefix'=>'admin'],function (){
+Route::get('admin/login', 'DashboardController@login')->name('admin.login');
+
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function (){
     Route::get('dashboard','DashboardController@dashboard')->name('admin.dashboard');
     Route::resource('role', 'RoleController');
     Route::resource('user', 'UserController');
     Route::resource('service', 'ServiceController');
 });
+
+Auth::routes([
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
+
+/*Route::get('/home', 'HomeController@index')->name('home');*/
