@@ -11,5 +11,7 @@ class Role extends Model
         'status',
     ];
 
-  
+    public function user(){
+        return $this->hasMany(User::class);
+    }
 }
