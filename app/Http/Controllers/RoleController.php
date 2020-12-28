@@ -14,7 +14,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $data['roles'] = Role::orderBy('id', 'ASC')->get();
+        $data['serial'] = 1;
+        return view('admin.role.index', $data);
     }
 
     /**
@@ -24,7 +26,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.role.create');
+
     }
 
     /**
@@ -35,7 +38,19 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'status' => 'required',
+
+        ]);
+
+
+        $data['name'] = $request->name;
+        $data['status'] = $request->status;
+
+        Role::create($data);
+        session()->flash('success', 'Role Create Successfully');
+        return redirect()->route('role.index');
     }
 
     /**
@@ -57,7 +72,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        $data['role']=$role;
+        return view('admin.role.edit', $data);
     }
 
     /**
@@ -69,7 +85,19 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'status' => 'required',
+
+        ]);
+
+
+        $data['name'] = $request->name;
+        $data['status'] = $request->status;
+
+        $role->update($data);
+        session()->flash('success', 'Role Update Successfully');
+        return redirect()->route('role.index');
     }
 
     /**
@@ -80,6 +108,6 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        return redirect()->back();
     }
 }
