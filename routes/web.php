@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', 'FrontendController@index')->name('user.index');
+Route::get('/', 'FrontendController@index')->name('home.index');
 
 
 

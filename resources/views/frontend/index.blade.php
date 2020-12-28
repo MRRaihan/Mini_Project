@@ -3,7 +3,7 @@
 @section('title', 'Home')
 @section('content')
     <ul class="header-main type-1">
-        <li class="home"><a href="{{route('user.index')}}">Home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+        <li class="home"><a href="{{route('home.index')}}">Home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
     </ul>
 
     <div class="row">
@@ -20,46 +20,37 @@
                 <div class="related-product-owl">
                     <div class=" owl-carousel related-owl " data-nav="yes" data-loop="yes" data-margin="30" data-items_xs="1" data-items_sm="3" data-items_md="3">
 
-
-                        <div class="product-layout">
-                            <div class="product-item-container">
-                                <div class="left-block">
-                                    <div class="product-image-container  second_img ">
-                                        <a href="product.html" class="product-img"><img src="img/demo/shop/product/product-5.jpg" alt=""></a>
-                                        <!--Sale Label-->
-
-                                        <div class="hover">
-                                            <ul>
-                                                <li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-                                                <li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
-                                                <li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                            </ul>
+                       @foreach($services as $service)
+                            <div class="product-layout">
+                                <div class="product-item-container">
+                                    <div class="left-block">
+                                        <div class="product-image-container  second_img ">
+                                            <a href="product.html" class="product-img"><img src="{{asset($service->image)}}" alt="" width="50%"></a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="right-block">
-                                    <div class="caption">
-                                        <h4><a href="product.html">Dummy product #04</a></h4>
-                                        <div class="ratings">
-                                            <div class="description item-desc text-justify">
-                                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                                    <div class="right-block">
+                                        <div class="caption">
+                                            <h1><a href="">{{$service->title}}</a></h1>
+                                            <div class="ratings">
+                                                <div class="description item-desc text-justify">
+                                                    <p>{{Str::limit($service->description, 150)}}</p>
+                                                </div>
                                             </div>
+
+                                            <div class="price">
+                                                <span class="price-new">${{$service->unit_price}}</span>
+
+                                            </div>
+
                                         </div>
 
-                                        <div class="price">
-                                            <span class="price-new">$78.00</span>
-
+                                        <div class="button-group">
+                                            <a class="btn btn-default" href="">Details</a>
                                         </div>
-
-                                    </div>
-
-                                    <div class="button-group">
-                                        <a class="btn btn-default" href="">Details</a>
-                                    </div>
-                                </div><!-- right block -->
+                                    </div><!-- right block -->
+                                </div>
                             </div>
-                        </div>
-
+                       @endforeach
 
                     </div>
                 </div>

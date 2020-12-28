@@ -15,7 +15,7 @@
                 <ul class="megamenu " data-transition="slide" data-animationtime="250">
                     <li class="home hover">
                         <p class="close-menu"></p>
-                        <a href="#" class="menu1">Home  </a>
+                        <a href="{{route('home.index')}}" class="menu1">Home  </a>
                     </li>
                     <li class="with-sub-menu hover">
                         <p class="close-menu"></p>
@@ -26,7 +26,7 @@
 
                     <li class="">
                         <p class="close-menu"></p>
-                        <a href="blog-page.html" class="clearfix menu1">
+                        <a href="#" class="clearfix menu1">
                             <strong>Blog</strong>
                             <span class="label"></span>
                         </a>

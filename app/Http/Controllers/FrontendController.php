@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Service;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $data['services'] = Service::where('status', 'active')->get();
+        return view('frontend.index', $data);
+
     }
 }

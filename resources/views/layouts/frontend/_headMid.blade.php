@@ -2,7 +2,7 @@
     <div class="row">
         <!-- Logo -->
         <div class="navbar-logo col-md-3 col-sm-12 col-xs-7">
-            <a href="{{route('user.index')}}"><img src="{{asset('assets/frontend/images/logo.png')}}" title="Your Store" alt="Your Store"></a>
+            <a href="{{route('home.index')}}"><img src="{{asset('assets/frontend/images/logo.png')}}" title="Your Store" alt="Your Store"></a>
         </div>
         <!-- //end Logo -->
 

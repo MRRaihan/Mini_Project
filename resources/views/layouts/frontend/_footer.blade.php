@@ -12,10 +12,10 @@
                 </div>
                 <div class="share-icon">
                     <ul>
-                        <li class="facebook"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li class="twitter"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li class="google"><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li class="skype"><a href=""><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                        <li class="facebook"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li class="twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li class="google"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li class="skype"><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -25,10 +25,10 @@
                 <h3 class="modtitle">Information</h3>
                 <div class="modcontent">
                     <ul class="menu">
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="order-history.html">Order history</a></li>
-                        <li><a href="order-information.html">Order information</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Order history</a></li>
+                        <li><a href="#">Order information</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,10 +39,10 @@
                 <h3 class="modtitle">Extras</h3>
                 <div class="modcontent">
                     <ul class="menu">
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="return.html">Returns</a></li>
-                        <li><a href="sitemap.html">Site Map</a></li>
-                        <li><a href="my-account.html">My Account</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Site Map</a></li>
+                        <li><a href="#">My Account</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="modcontent">
                     <ul class="menu">
                         <li><a href="#">Brands</a></li>
-                        <li><a href="gift-voucher.html">Gift Vouchers</a></li>
+                        <li><a href="#">Gift Vouchers</a></li>
                         <li><a href="#">Affiliates</a></li>
                         <li><a href="#">Specials</a></li>
                         <li><a href="#" target="_blank">Our Blog</a></li>
