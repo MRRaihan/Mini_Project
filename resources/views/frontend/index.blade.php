@@ -7,6 +7,14 @@
     </ul>
 
     <div class="row">
+        @if(session()->has('message'))
+            <div class="alert alert-success" role="alert">
+                {{session('message')}}
+            </div>
+        @endif
+    </div>
+
+    <div class="row">
         <!--Middle Part Start-->
         <div id="content " class="col-md-12 col-sm-12 type-1">
 

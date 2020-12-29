@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
 class ServiceController extends Controller
 {
@@ -17,12 +16,7 @@ class ServiceController extends Controller
     {
         $data['services'] = Service::orderBy('created_at', 'DESC')->paginate(20);
         $data['serial'] = 1;
-        //return view('admin.service.index', $data);
-
-        if (Gate::allows('admin_provider', auth()->user())) {
-            return view('admin.service.index', $data);
-        }
-        return redirect()->route('home.index');
+        return view('admin.service.index', $data);
     }
 
     /**

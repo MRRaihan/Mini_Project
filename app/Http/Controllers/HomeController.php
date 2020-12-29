@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -25,11 +26,6 @@ class HomeController extends Controller
     public function clientreg()
     {
         return view('frontend.registration');
-    }
-
-    public function clientRegistration(Request $request)
-    {
-        $data= new User();
     }
 
     /**
