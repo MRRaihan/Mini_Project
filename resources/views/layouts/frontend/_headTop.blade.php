@@ -31,8 +31,8 @@
             <div class="tabBlock1" id="TabBlock-1">
                 <ul class="top-link list-inline">
                     <li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Welcome Customer!"><span>Welcome Customer!</span></a></li>
-                    <li class="signin"><a href="login.html" class="top-link-checkout" title="Sign In"><span>Sign In</span></a></li>
-                    <li class="register"><a href="register.html" title="Register"><span>Register</span></a></li>
+                    <li class="signin"><a href="{{route('client.login')}}" class="top-link-checkout" title="Sign In"><span>Sign In</span></a></li>
+                    <li class="register"><a href="{{route('client.registration')}}" title="Register"><span>Register</span></a></li>
                 </ul>
             </div>
         </div>

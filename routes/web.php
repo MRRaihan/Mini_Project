@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+
+Route::get('client/login', 'HomeController@clientlogin')->name('client.login');
+Route::get('client/registration', 'HomeController@clientreg')->name('client.registration');
+
+
 Route::get('/', 'FrontendController@index')->name('home.index');
 Route::get('service/{id}/details','FrontendController@details')->name('service.details');
 

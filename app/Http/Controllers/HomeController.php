@@ -13,7 +13,17 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        /*$this->middleware('auth');*/
+    }
+
+    public function clientlogin()
+    {
+        return view('frontend.login');
+    }
+
+    public function clientreg()
+    {
+        return view('frontend.registration');
     }
 
     /**
@@ -21,8 +31,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    /*public function index()
     {
         return view('home');
-    }
+    }*/
 }
