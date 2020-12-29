@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -17,7 +18,12 @@ class UserController extends Controller
     {
         $data['users'] = User::orderBy('created_at', 'DESC')->get();
         $data['serial']=1;
-        return view('admin.user.index',$data);
+        //return view('admin.user.index',$data);
+
+        if (Gate::allows('admin_provider', auth()->user())) {
+            return view('admin.user.index',$data);
+        }
+        return redirect()->route('home.index');
     }
 
     /**

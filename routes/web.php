@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('client/login', 'HomeController@clientlogin')->name('client.login');
 Route::get('client/registration', 'HomeController@clientreg')->name('client.registration');
+Route::post('client/registration', 'HomeController@clientreg')->name('client.registration');
 
 
 Route::get('/', 'FrontendController@index')->name('home.index');
@@ -29,11 +30,11 @@ Route::get('service/{id}/details','FrontendController@details')->name('service.d
 
 Route::get('admin/login', 'DashboardController@login')->name('admin.login');
 
-Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function (){
-    Route::get('dashboard','DashboardController@dashboard')->name('admin.dashboard');
-    Route::resource('role', 'RoleController');
-    Route::resource('user', 'UserController');
-    Route::resource('service', 'ServiceController');
+Route::group(['prefix'=>'admin'],function (){
+    Route::get('dashboard','DashboardController@dashboard')->middleware('can:admin_provider')->name('admin.dashboard');
+    Route::resource('role', 'RoleController')->middleware('can:admin_provider');
+    Route::resource('user', 'UserController')->middleware('can:admin_provider');
+    Route::resource('service', 'ServiceController')->middleware('can:admin_provider');
 });
 
 Auth::routes([

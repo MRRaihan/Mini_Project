@@ -19,9 +19,8 @@
 
     <div class="login-content">
 
-        <form action="{{ route('register') }}" method="POST" class="sign-in-form">
+        <form action="{{ route('client.registration') }}" method="POST" class="sign-in-form">
             @csrf
-
 
             <img src="{{asset('assets/frontend/images/profilepic.png')}}">
             <h2 class="login-title">Client Info</h2>
@@ -49,7 +48,7 @@
                     <div style="color: red;">{{ $message }}</div>
                 @enderror
 
-            <button name="signup-btn" class="btn">signup</button>
+            <button type="submit" name="signup-btn" class="btn">Sign up</button>
             <br><br> (
             <a href="{{route('client.login')}}" style="color: red;
                    font-size: 0.9rem;"> Login</a>)

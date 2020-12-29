@@ -41,6 +41,17 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="continer">
+                            <h4>Comment Section</h4>
+                            @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role_id == 3)
+                                <a href="#" class="btn btn-success">Negotiation</a>
+                            @else
+                                <a href="{{route('client.login')}}" class="btn btn-success" title="Sign In"><span>Sign In</span></a> Or
+                                <a href="{{route('client.registration')}}" class="btn btn-primary" title="Registration"><span>Registration</span></a>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sx-12">
                             <div class="producttab ">
                                 <div class="tabsslider  col-xs-12">
