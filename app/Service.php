@@ -13,4 +13,9 @@ class Service extends Model
         'image',
         'status',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

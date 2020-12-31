@@ -17,6 +17,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('assets/frontend/ico/apple-touch-icon-72-precomposed.png')}}">
 <link rel="apple-touch-icon-precomposed" href="{{asset('assets/frontend/ico/apple-touch-icon-57-precomposed.png')}}">
 <link rel="shortcut icon" href="{{asset('assets/frontend/ico/favicon.png')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 <!-- Google web fonts
 ============================================ -->
@@ -64,5 +65,11 @@
 <script type="text/javascript" src="{{asset('assets/frontend/js/themejs/addtocart.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/frontend/js/themejs/application.js')}}"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    @if(Session::has('success'))
+    toastr.success("{{ Session::get('success') }}")
+    @endif
+</script>
+@yield('table_script')
 

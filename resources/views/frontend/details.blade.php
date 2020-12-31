@@ -51,51 +51,39 @@
                                     <div class="col-sx-12">
                                         <div class="producttab ">
                                             <div class="tabsslider  col-xs-12">
-                                                <ul class="nav nav-tabs">
-                                                    <li class="item_nonactive "><a data-toggle="tab" href="#tab-review">Negotiation</a></li>
-                                                </ul>
 
                                                 <div id="tab-review" class="tab-pane fade  in">
-                                                    <form>
-                                                        <div id="review">
-                                                            <table class="table table-striped table-bordered">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td style="width: 50%;"><strong>Super Administrator</strong></td>
-                                                                    <td class="text-right">29/07/2015</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="2">
-                                                                        <p>Best this product opencart</p>
-                                                                        <div class="ratings">
-                                                                            <div class="rating-box">
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star gray"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <div class="text-right"></div>
-                                                        </div>
-                                                        <h2 id="review-title">Write a review</h2>
+                                                    <form method="post" action="{{ route('comment.store',$service->id) }}">
+                                                        @csrf
+                                                        <h2 id="review-title">Write Negotiation Price</h2>
                                                         <div class="contacts-form">
-                                                            <div class="form-group"> <span class="icon icon-user"></span>
-                                                                <input type="text" name="name" class="form-control" value="Your Name" onblur="if (this.value == '') {this.value = 'Your Name';}" onfocus="if(this.value == 'Your Name') {this.value = '';}">
-                                                            </div>
                                                             <div class="form-group"> <span class="icon icon-bubbles-2"></span>
-                                                                <textarea class="form-control" name="text" onblur="if (this.value == '') {this.value = 'Your Review';}" onfocus="if(this.value == 'Your Review') {this.value = '';}">Your Review</textarea>
+                                                                <textarea name="comment" rows="3" class="text-area-messge form-control" placeholder="Enter your Price" aria-required="true" aria-invalid="false"></textarea >
                                                             </div>
-
-
-
-                                                            <div class="buttons clearfix"><a id="button-review" class="btn buttonGray">Continue</a></div>
+                                                            <div class="buttons clearfix">
+                                                                <button class="btn btn-info">Save</button>
+                                                            </div>
                                                         </div>
                                                     </form>
+                                                    <br><br><br>
+                                                    @foreach($service->comments as $comment)
+                                                        <div id="review">
+
+                                                                <table class="table table-striped table-bordered">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td style="width: 50%;"><strong>{{ $comment->user->name }}</strong></td>
+                                                                        <td class="text-right">{{ $comment->created_at->diffForHumans()}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2">
+                                                                            <p>{{ $comment->comment }}</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                        </div>
+                                                    @endforeach
                                                 </div>
 
                                             </div>

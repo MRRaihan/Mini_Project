@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNegotiatePricesTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateNegotiatePricesTable extends Migration
      */
     public function up()
     {
-        Schema::create('negotiate_prices', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('service_id');
             $table->unsignedBigInteger('user_id');
-            $table->text('message');
+            $table->text('comment');
             // Delete all comments on delete posts
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             // Delete all comments on delete users
@@ -33,6 +33,6 @@ class CreateNegotiatePricesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('negotiate_prices');
+        Schema::dropIfExists('comments');
     }
 }
