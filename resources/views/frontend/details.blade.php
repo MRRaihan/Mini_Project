@@ -42,70 +42,74 @@
                     </div>
                     <div class="row">
                         <div class="continer">
-                            <h4>Comment Section</h4>
+                            <h4>Price Discussion</h4>
                             @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role_id == 3)
-                                <a href="#" class="btn btn-success">Negotiation</a>
+                                {{--
+                                 <a href="#" class="btn btn-success">Negotiation</a>
+                                  --}}
+                                <div class="row">
+                                    <div class="col-sx-12">
+                                        <div class="producttab ">
+                                            <div class="tabsslider  col-xs-12">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="item_nonactive "><a data-toggle="tab" href="#tab-review">Negotiation</a></li>
+                                                </ul>
+
+                                                <div id="tab-review" class="tab-pane fade  in">
+                                                    <form>
+                                                        <div id="review">
+                                                            <table class="table table-striped table-bordered">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td style="width: 50%;"><strong>Super Administrator</strong></td>
+                                                                    <td class="text-right">29/07/2015</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="2">
+                                                                        <p>Best this product opencart</p>
+                                                                        <div class="ratings">
+                                                                            <div class="rating-box">
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star gray"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <div class="text-right"></div>
+                                                        </div>
+                                                        <h2 id="review-title">Write a review</h2>
+                                                        <div class="contacts-form">
+                                                            <div class="form-group"> <span class="icon icon-user"></span>
+                                                                <input type="text" name="name" class="form-control" value="Your Name" onblur="if (this.value == '') {this.value = 'Your Name';}" onfocus="if(this.value == 'Your Name') {this.value = '';}">
+                                                            </div>
+                                                            <div class="form-group"> <span class="icon icon-bubbles-2"></span>
+                                                                <textarea class="form-control" name="text" onblur="if (this.value == '') {this.value = 'Your Review';}" onfocus="if(this.value == 'Your Review') {this.value = '';}">Your Review</textarea>
+                                                            </div>
+
+
+
+                                                            <div class="buttons clearfix"><a id="button-review" class="btn buttonGray">Continue</a></div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             @else
                                 <a href="{{route('client.login')}}" class="btn btn-success" title="Sign In"><span>Sign In</span></a> Or
                                 <a href="{{route('client.registration')}}" class="btn btn-primary" title="Registration"><span>Registration</span></a>
                             @endif
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sx-12">
-                            <div class="producttab ">
-                                <div class="tabsslider  col-xs-12">
-                                    <ul class="nav nav-tabs">
-                                        <li class="item_nonactive "><a data-toggle="tab" href="#tab-review">Price Discuess (1)</a></li>
-                                    </ul>
 
-                                     <div id="tab-review" class="tab-pane fade  in">
-                                            <form>
-                                                <div id="review">
-                                                    <table class="table table-striped table-bordered">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td style="width: 50%;"><strong>Super Administrator</strong></td>
-                                                            <td class="text-right">29/07/2015</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <p>Best this product opencart</p>
-                                                                <div class="ratings">
-                                                                    <div class="rating-box">
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star"></i>
-                                                                        <i class="fa fa-star gray"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <div class="text-right"></div>
-                                                </div>
-                                                <h2 id="review-title">Write a review</h2>
-                                                <div class="contacts-form">
-                                                    <div class="form-group"> <span class="icon icon-user"></span>
-                                                        <input type="text" name="name" class="form-control" value="Your Name" onblur="if (this.value == '') {this.value = 'Your Name';}" onfocus="if(this.value == 'Your Name') {this.value = '';}">
-                                                    </div>
-                                                    <div class="form-group"> <span class="icon icon-bubbles-2"></span>
-                                                        <textarea class="form-control" name="text" onblur="if (this.value == '') {this.value = 'Your Review';}" onfocus="if(this.value == 'Your Review') {this.value = '';}">Your Review</textarea>
-                                                    </div>
-
-
-
-                                                    <div class="buttons clearfix"><a id="button-review" class="btn buttonGray">Continue</a></div>
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
 
