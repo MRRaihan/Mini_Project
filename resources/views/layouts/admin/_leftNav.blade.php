@@ -5,14 +5,7 @@
         </div>
         <div class="user-info">
             <div class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Mizanur Rahaman Raihan</a>
-                <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)"> Profile</a></li>
-                    <li><a href="javascript:void(0)"> Settings</a></li>
-                    <li><a href="javascript:void(0)"> Lock screen</a></li>
-                    <li class="divider"></li>
-                    <li><a href="javascript:void(0)"> Logout</a></li>
-                </ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ auth()->user()->name }}</a>
             </div>
 
             <p class="text-muted m-0"><i class="fa fa-dot-circle-o text-success"></i> Online</p>
@@ -24,6 +17,7 @@
             <li>
                 <a href="{{route('admin.dashboard')}}" class="waves-effect"><i class="ti-home"></i><span> Dashboard </span></a>
             </li>
+            @can('admin',auth()->user())
             <li class="has_sub">
                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i> <span> Roles </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
                 <ul class="list-unstyled">
@@ -31,7 +25,9 @@
                     <li><a href="{{route('role.create')}}">Create New Role</a></li>
                 </ul>
             </li>
+           @endcan
 
+            @can('admin',auth()->user())
             <li class="has_sub">
                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i> <span> Users </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
                 <ul class="list-unstyled">
@@ -39,7 +35,7 @@
                     <li><a href="{{route('user.create')}}">Create New User</a></li>
                 </ul>
             </li>
-
+            @endcan
 
             <li class="has_sub">
                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-agenda"></i> <span> Services </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
@@ -48,6 +44,15 @@
                     <li><a href="{{route('service.create')}}">Create New Service</a></li>
                 </ul>
             </li>
+
+            <li class="has_sub">
+                <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i> <span> Comments </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
+                <ul class="list-unstyled">
+                    <li><a href="{{route('comment.index')}}">User List</a></li>
+                </ul>
+            </li>
+
+
 
         </ul>
     </div>

@@ -34,6 +34,10 @@ Route::group(['prefix'=>'admin'],function (){
     Route::resource('role', 'RoleController')->middleware('can:admin_provider');
     Route::resource('user', 'UserController')->middleware('can:admin_provider');
     Route::resource('service', 'ServiceController')->middleware('can:admin_provider');
+
+    Route::get('comments','Admin\CommentController@index')->name('comment.index');
+    Route::delete('comments/{id}','Admin\CommentController@destroy')->name('comment.destroy');
+
 });
 
 Auth::routes([
