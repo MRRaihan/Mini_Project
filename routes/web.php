@@ -38,6 +38,9 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('comments','Admin\CommentController@index')->name('comment.index');
     Route::delete('comments/{id}','Admin\CommentController@destroy')->name('comment.destroy');
 
+    Route::get('commentreply','Admin\CommentReplyController@index')->name('commentreply.index');
+    Route::delete('commentreply/{id}','Admin\CommentReplyController@destroy')->name('commentreply.destroy');
+
 });
 
 Auth::routes([

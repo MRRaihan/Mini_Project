@@ -46,13 +46,18 @@
             </li>
 
             <li class="has_sub">
-                <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i> <span> Comments </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
+                <a href="javascript:void(0);" class="waves-effect"><i class="ti-agenda"></i> <span> Comments </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
                 <ul class="list-unstyled">
-                    <li><a href="{{route('comment.index')}}">User List</a></li>
+                    <li><a href="{{route('comment.index')}}">Comment List</a></li>
                 </ul>
             </li>
 
-
+            <li class="has_sub">
+                <a href="javascript:void(0);" class="waves-effect"><i class="ti-agenda"></i> <span> CommentReply </span> <span class="pull-right"><i class="mdi mdi-plus"></i></span></a>
+                <ul class="list-unstyled">
+                    <li><a href="{{route('commentreply.index')}}">CommentReply List</a></li>
+                </ul>
+            </li>
 
         </ul>
     </div>
