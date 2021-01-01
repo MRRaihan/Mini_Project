@@ -31,12 +31,14 @@
             <div class="tabBlock1" id="TabBlock-1">
                 <ul class="top-link list-inline">
                     <li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Welcome Customer!"><span>Welcome Customer!</span></a></li>
-                    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role_id == 3)
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2 or \Illuminate\Support\Facades\Auth::user()->role_id == 3)
                         <li class="">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"> Logout</a>
                             <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
                             </form>
                         </li>
+                        @endif
                     @else
                         <li class="signin"><a href="{{route('client.login')}}" class="top-link-checkout" title="Sign In"><span>Sign In</span></a></li>
                     @endif
