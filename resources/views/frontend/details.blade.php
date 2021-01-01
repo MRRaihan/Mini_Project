@@ -49,7 +49,7 @@
                                  <a href="#" class="btn btn-success">Negotiation</a>
                                   --}}
                                 @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2  or \Illuminate\Support\Facades\Auth::user()->role_id == 3 )
-                                 <div class="row">
+                                 {{--<div class="row">
                                     <div class="col-sx-12">
                                         <div class="producttab ">
                                             <div class="tabsslider  col-xs-12">
@@ -93,13 +93,127 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
+
+                                 <!-- Start comment-sec Area -->
+                                     <section class="comment-sec-area pt-80 pb-80">
+                                         <div class="container">
+                                             <div class="row flex-column">
+                                                 <br />
+                                                 <form method="post" action="{{ route('comment.store',$service->id) }}">
+                                                     @csrf
+                                                     <h2 id="review-title">Write Negotiation Price</h2>
+                                                     <div class="contacts-form">
+                                                         <div class="form-group"> <span class="icon icon-bubbles-2"></span>
+                                                             <textarea name="comment" rows="4" class="text-area-messge form-control" placeholder="Enter your Price" aria-required="true" aria-invalid="false"></textarea >
+                                                         </div>
+                                                         <div class="buttons clearfix">
+                                                             <button class="btn btn-info">Save</button>
+                                                         </div>
+                                                     </div>
+                                                 </form>
+                                                 <br><br><br>
+                                                 <h5 class="text-uppercase pb-80">Price Discussion Message ({{$service->comments->count()}})</h5>
+
+                                             @foreach ($service->comments as $comment)
+                                                     <div class="comment">
+                                                         <div class="comment-list">
+                                                             <div class="single-comment justify-content-between d-flex">
+                                                                 <div class="user justify-content-between d-flex">
+                                                                     <div class="thumb">
+                                                                         <img src="{{asset('assets/frontend/images/Admin.png')}}" alt="" width="50px">
+                                                                     </div>
+                                                                     <div class="desc">
+                                                                         <h5><a href="#">{{$comment->user->name}}</a></h5>
+                                                                         <p class="date">{{$comment->created_at->format('D, d M Y, H:i')}}</p>
+                                                                         <p class="comment">
+                                                                             {{$comment->comment}}
+                                                                         </p>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="">
+                                                                     <button class="btn-reply text-uppercase btn btn-success btn-sm" id="reply-btn" onclick="showReplyForm('{{$comment->id}}','{{$comment->user->name}}')">reply</button
+                                                                     >
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                         <br>
+                                                         @if($comment->replies->count() > 0)
+                                                             @foreach ($comment->replies as $reply)
+                                                                 <div class="comment-list left-padding" style="margin-left: 3%">
+                                                                     <div
+                                                                         class="single-comment justify-content-between d-flex">
+                                                                         <div class="user justify-content-between d-flex">
+                                                                             <div class="thumb">
+                                                                                 <img src="{{asset('assets/frontend/images/profilepic.png')}}" alt="" width="50px"/>
+                                                                             </div>
+                                                                             <div class="desc">
+                                                                                 <h5><a href="#">{{$reply->user->name}}</a></h5>
+                                                                                 <p class="date">{{$reply->created_at->format('D, d M Y, H:i')}}</p>
+                                                                                 <p class="comment">
+                                                                                     <b>{{$reply->comment}}</b>
+                                                                                 </p>
+                                                                             </div>
+                                                                         </div>
+                                                                         <div class="">
+                                                                             <button class="btn-reply text-uppercase btn btn-success btn-sm" id="reply-btn" onclick="showReplyForm('{{$comment->id}}','{{$reply->user->name}}')">reply</button
+                                                                             >
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+
+                                                             @endforeach
+                                                         @else
+                                                         @endif
+                                                         <div class="comment-list left-padding" id="reply-form-{{$comment->id}}" style="display: none">
+                                                             <div class="single-comment justify-content-between d-flex">
+                                                                 <div class="user justify-content-between d-flex">
+                                                                     <div class="thumb">
+                                                                         <img src="#" alt="" width="50px"/>
+                                                                     </div>
+                                                                     <div class="desc">
+                                                                         <h5><a href="#">{{Auth::user()->name}}, </a></h5>
+                                                                         <p class="date">{{date('D, d M Y, H:i')}}</p>
+                                                                         <div class="row flex-row d-flex">
+                                                                             <form action="{{route('reply.store',$comment->id)}}" method="POST">
+                                                                                 @csrf
+                                                                                 <div class="col-lg-12">
+                                                                                  <textarea
+                                                                                      id="reply-form-{{$comment->id}}-text"
+                                                                                      cols="60"
+                                                                                      rows="2"
+                                                                                      class="form-control mb-10"
+                                                                                      name="comment"
+                                                                                      placeholder="comment"
+                                                                                      onfocus="this.placeholder = ''"
+                                                                                      onblur="this.placeholder = 'comment'"
+                                                                                      required=""
+                                                                                  ></textarea>
+
+                                                                                 </div>
+                                                                                 <br> <br> <br>
+                                                                                 <button type="submit" class="btn-reply btn text-right btn-primary btn-sm" style="margin-left: 15px;">Reply</button>
+                                                                             </form>
+                                                                             <br>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                 @endforeach
+                                             </div>
+                                         </div>
+                                     </section>
+                                     <br><br><br> <br><br><br>
+                                     <!-- End comment-sec Area -->
 
                                     @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
                                         <form action="">
                                             @csrf
-                                            <b>Orger Confirm : </b> <input type="number" name="price" min="1">
-                                            <button class="btn btn-success btn-sm">Confirm</button>
+                                            <b>Order Confirm : </b> <input type="number" name="price" min="1">
+                                            <button class="btn btn-info btn-sm">Confirm</button>
                                         </form>
                                     @endif
                                 @endif
@@ -170,3 +284,20 @@
 
 @endsection
 
+@section('script')
+    <script type="text/javascript">
+        function showReplyForm(commentId,user) {
+            var x = document.getElementById(`reply-form-${commentId}`);
+            var input = document.getElementById(`reply-form-${commentId}-text`);
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                input.innerText=`@${user},  `;
+
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+    </script>
+@endsection

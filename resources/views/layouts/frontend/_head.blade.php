@@ -73,3 +73,4 @@
 </script>
 @yield('table_script')
 
+@yield('script')

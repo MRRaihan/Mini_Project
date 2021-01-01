@@ -24,6 +24,7 @@ Route::get('client/registration', 'HomeController@clientreg')->name('client.regi
 Route::get('/', 'FrontendController@index')->name('home.index');
 Route::get('service/{id}/details','FrontendController@details')->name('service.details');
 Route::post('comment/{service}','CommentController@store')->name('comment.store');
+Route::post('/comment_reply/{comment}', 'CommentReplyController@store')->name('reply.store')->middleware('auth');
 
 
 Route::get('admin/login', 'DashboardController@login')->name('admin.login');
